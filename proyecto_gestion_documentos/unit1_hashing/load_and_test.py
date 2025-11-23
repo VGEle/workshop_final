@@ -4,14 +4,18 @@ Cargar documentos JSON y probar la tabla hash
 
 import json
 import time
+from pathlib import Path
 from hash_table import HashTable
+
+DATA_FILE = Path(__file__).resolve().parent.parent / "data" / "unit1_documents.json"
 
 
 def cargar_documentos(archivo):
     """Carga documentos desde un archivo JSON"""
+    archivo = Path(archivo)
     print(f"Cargando documentos desde {archivo}...")
 
-    with open(archivo, "r", encoding="utf-8") as f:
+    with archivo.open("r", encoding="utf-8") as f:
         documentos = json.load(f)
 
     print(f"✓ Cargados {len(documentos)} documentos")
@@ -26,7 +30,7 @@ def probar_tabla_hash():
     print("=" * 60 + "\n")
 
     # Cargar documentos
-    documentos = cargar_documentos("../data/unit1_documents.json")
+    documentos = cargar_documentos(DATA_FILE)
 
     # Crear tabla hash
     print("\nCreando tabla hash...")

@@ -30,30 +30,35 @@ Sistema completo de gestión de documentos que implementa **18 algoritmos** de B
 
 ## Inicio Rápido (5 minutos)
 
+### 0. Ruta de trabajo
+Sitúate dentro de la carpeta del proyecto: `proyecto_gestion_documentos`.  
+Todos los comandos asumen que estás allí (evita errores de rutas, sobre todo en Windows).
+
 ### 1. Requisitos Previos
 
 - Python 3.9+
-- Virtual environment
+- Entorno virtual
 
-### 2. Instalación
+### 2. Instalación (macOS/Linux/Windows)
 
 ```bash
-# Clonar o descargar el proyecto
+# Clonar o descomprimir y entrar
 cd proyecto_gestion_documentos
 
-# Crear virtual environment
-python -m venv ../venv
+# Crear entorno virtual (en la carpeta del proyecto)
+python -m venv venv
 
 # Activar venv
-source ../venv/bin/activate  # macOS/Linux
-# o
-../venv\Scripts\activate  # Windows
+# macOS/Linux
+source venv/bin/activate
+# Windows (PowerShell o CMD)
+venv\Scripts\activate
 
 # Instalar dependencias
 pip install -r requirements.txt
 ```
 
-### 3. Generar Datos Mock
+### 3. Generar Datos Mock (opcional si ya tienes los JSON)
 
 ```bash
 cd data
@@ -61,7 +66,7 @@ python generate_mock_data.py
 cd ..
 ```
 
-### 4. Ejecutar Unidades
+### 4. Ejecutar Unidades (desde la raíz del proyecto)
 
 ```bash
 # Unit 1: Hashing & Search
@@ -79,6 +84,8 @@ python unit4_mapreduce/document_analyzer.py
 # Unit 5: Similarity Search
 python unit5_similarity/similarity_analyzer.py
 ```
+
+> Nota: Los scripts ahora construyen la ruta a los JSON con `Path(__file__).resolve()`, así que funcionarán incluso si ejecutas desde otra carpeta, pero mantenerte en `proyecto_gestion_documentos` evita confusiones.
 
 ---
 

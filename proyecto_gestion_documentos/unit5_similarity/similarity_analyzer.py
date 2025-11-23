@@ -13,9 +13,12 @@ Aplicación: Detección de plagio, deduplicación, clustering
 
 import json
 import time
+from pathlib import Path
 from collections import Counter
 from jaccard_similarity import Shingling
 from lsh import LSHDocumentIndex
+
+DATA_FILE = Path(__file__).resolve().parent.parent / "data" / "unit5_documents.json"
 
 
 class SimilarityAnalyzer:
@@ -360,7 +363,7 @@ if __name__ == "__main__":
     # Cargar documentos
     print("\nCargando documentos...")
     
-    with open('../data/unit5_documents.json', 'r') as f:
+    with DATA_FILE.open("r", encoding="utf-8") as f:
         documents = json.load(f)
     
     print(f"Cargados {len(documents)} documentos")

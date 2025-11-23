@@ -12,10 +12,13 @@ Aplicación: Análisis completo del ciclo de vida de documentos
 
 import json
 import numpy as np
+from pathlib import Path
 from collections import Counter, defaultdict
 from markov_chain import MarkovChain
 from pagerank import PageRank
 from random_walk import RandomWalk
+
+DATA_FILE = Path(__file__).resolve().parent.parent / "data" / "unit3_documents.json"
 
 
 class DocumentWorkflowAnalyzer:
@@ -417,7 +420,7 @@ if __name__ == "__main__":
     # Cargar datos
     print("\nCargando datos de prueba...")
     
-    with open('../data/unit3_documents.json', 'r') as f:
+    with DATA_FILE.open("r", encoding="utf-8") as f:
         documents = json.load(f)
     
     print(f"✓ Cargados {len(documents)} documentos")

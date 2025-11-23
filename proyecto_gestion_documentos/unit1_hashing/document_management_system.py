@@ -5,9 +5,12 @@ Integra: Hash Table, Search Engine, Recommendation System
 
 import json
 import time
+from pathlib import Path
 from hash_table import HashTable
 from search_engine import SearchEngine
 from recommendation_system import RecommendationSystem
+
+DEFAULT_DATA_FILE = Path(__file__).resolve().parent.parent / "data" / "unit1_documents.json"
 
 
 class DocumentManagementSystem:
@@ -37,7 +40,7 @@ class DocumentManagementSystem:
 
         Parámetros:
         -----------
-        filepath : str
+        filepath : str | Path
             Ruta al archivo JSON con documentos
 
         Retorna:
@@ -45,10 +48,11 @@ class DocumentManagementSystem:
         int
             Número de documentos cargados
         """
+        filepath = Path(filepath)
         print(f"\nCargando documentos desde {filepath}...")
         inicio = time.time()
 
-        with open(filepath, "r", encoding="utf-8") as f:
+        with filepath.open("r", encoding="utf-8") as f:
             documents = json.load(f)
 
         print(f"Archivo cargado: {len(documents)} documentos")
@@ -332,7 +336,7 @@ if __name__ == "__main__":
     dms = DocumentManagementSystem()
 
     # Cargar documentos
-    dms.load_documents("../data/unit1_documents.json")
+    dms.load_documents(DEFAULT_DATA_FILE)
 
     # Mostrar estadísticas iniciales
     print("\n--- ESTADÍSTICAS DEL SISTEMA ---")

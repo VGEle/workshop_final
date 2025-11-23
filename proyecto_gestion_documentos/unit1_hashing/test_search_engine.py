@@ -4,13 +4,17 @@ Probar motor de búsqueda con datos reales
 
 import json
 import time
+from pathlib import Path
 from search_engine import SearchEngine
+
+DATA_FILE = Path(__file__).resolve().parent.parent / "data" / "unit1_documents.json"
 
 
 def cargar_documentos(archivo):
     """Carga documentos desde archivo JSON"""
+    archivo = Path(archivo)
     print(f"Cargando documentos desde {archivo}...")
-    with open(archivo, "r", encoding="utf-8") as f:
+    with archivo.open("r", encoding="utf-8") as f:
         documentos = json.load(f)
     print(f"✓ Cargados {len(documentos)} documentos")
     return documentos
@@ -24,7 +28,7 @@ def probar_motor_busqueda():
     print("=" * 60 + "\n")
 
     # Cargar documentos
-    documentos = cargar_documentos("../data/unit1_documents.json")
+    documentos = cargar_documentos(DATA_FILE)
 
     # Crear motor de búsqueda
     print("\nCreando motor de búsqueda...")

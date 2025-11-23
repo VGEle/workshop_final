@@ -29,6 +29,27 @@
 
 ---
 
+## Guía rápida de ejecución (entorno y rutas)
+
+- Ubicación: sitúate en la carpeta del proyecto `proyecto_gestion_documentos` antes de ejecutar cualquier script.
+- Entorno virtual:
+  - Crear: `python -m venv venv`
+  - Activar: `source venv/bin/activate` (macOS/Linux) o `venv\Scripts\activate` (Windows)
+  - Instalar deps: `pip install -r requirements.txt`
+- Datos mock (opcional si ya tienes los JSON): `cd data && python generate_mock_data.py && cd ..`
+- Ejecución de unidades (desde la raíz):
+  - Unit 1: `python unit1_hashing/load_and_test.py`
+  - Unit 1 completo: `python unit1_hashing/document_management_system.py`
+  - Unit 2: `python unit2_datastreams/bloom_filter.py` (y demás scripts de la unidad)
+  - Unit 3: `python unit3_markov/document_workflow_analyzer.py`
+  - Unit 4: `python unit4_mapreduce/document_analyzer.py`
+  - Unit 5: `python unit5_similarity/similarity_analyzer.py`
+- Notas:
+  - Los scripts usan rutas absolutas basadas en su ubicación, pero estar en la raíz evita confusiones.
+  - En Windows usa `\` en las rutas de los comandos (`python unit1_hashing\load_and_test.py`).
+
+---
+
 <a name="resumen"></a>
 ## Resumen Ejecutivo
 
