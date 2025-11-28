@@ -3,7 +3,7 @@
 **Proyecto Final - Lógica y Representación III**
 
 ## Equipo
-- Carolina Osorno Gómez
+- Carolina Gómez Osorno
 - Elena Vargas Grisales
 - Jonathan Arley Alzate Castaño
 
